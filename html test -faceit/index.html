@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACEIT Style Platform - Головна</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Permanent+Marker&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- 1. Шапка сайту -->
+        <header>
+            <nav>
+                <a href="index.html" class="logo-container">
+                    <div class="logo-main">
+                        FACE<span class="accent">I</span>T
+                    </div>
+                    <div class="logo-sub">
+                        <span class="orange-text">CHALLENGE</span>
+                        <span class="white-text">YOUR</span>
+                        <span class="white-text strikethrough">GAME</span>
+                    </div>
+                    <div class="handwritten">MENTAL HEALTH</div>
+                </a>
+
+                <ul class="menu-center">
+                    <li><a href="index.html" class="active">Головна</a></li>
+                    <li><a href="tournaments.html">Турніри</a></li>
+                    <li><a href="download.html">Завантажити</a></li>
+                </ul>
+
+                <div class="header-buttons" id="auth-buttons-container">
+                    <button class="btn-login" onclick="openLoginModal()">Прив'язати SteamID</button>
+                    <button class="btn-play" onclick="openLoginModal()">Грати зараз</button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- 2. Головна секція -->
+        <main class="hero-container">
+            <section class="hero-section">
+                
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        CHALLENGE<br>
+                        YOUR <span class="highlight">RANK</span>
+                    </h1>
+                    <p class="hero-description">
+                        Гравці обирають FACEIT для справжньої конкурентної гри. Змагайтеся в матчмейкінгу та командних рейтингах, щоб довести свою перевагу.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-play hero-btn" onclick="handleHeroPlayClick()">
+                            <span class="btn-icon">▶</span> ГРАТИ ЗАРАЗ
+                        </button>
+                        <div class="online-status">
+                            <span class="dot"></span>
+                            <span class="online-count">315 761</span> гравців у мережі
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Картки гравців -->
+                <div class="players-cards">
+                    
+                    <div class="player-card card-gtnerv">
+                        <div class="card-banner-bg"></div>
+                        <div class="card-bg-overlay"></div>
+                        <div class="platform-logo steam-logo"><span>LVL 3</span></div>
+                        <div class="card-avatar">
+                            <img src="images/Знімок екрана 2026-10-21 185638.png" alt="gtnerv" onerror="this.src='https://via.placeholder.com/100/18181b/ffffff?text=gt'">
+                        </div>
+                        <div class="player-info">
+                            <div class="player-name">gtnerv</div>
+                            <div class="player-badge-title mono-text">DARK ANIME CORE</div>
+                            <div class="player-status">В мережі 42 год. тому</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card card-pr3tty active-card">
+                        <div class="card-banner-bg"></div>
+                        <div class="card-bg-overlay"></div>
+                        <div class="lightning-effect"></div>
+                        <div class="platform-logo faceit-logo"><span>LVL 7</span></div>
+                        <div class="card-avatar neon-frame">
+                            <img src="images/Знімок екрана 2026-10-21 185552.png" alt="pr3ttystreet" onerror="this.src='https://via.placeholder.com/100/2e1065/ffffff?text=pr3tty'">
+                        </div>
+                        <div class="player-info">
+                            <div class="player-name">pr3ttystreet</div>
+                            <div class="player-badge-title">Знавець-збиральник</div>
+                            <div class="player-status">В мережі 41 дн. тому</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card card-kh4ch1">
+                        <div class="card-banner-bg"></div>
+                        <div class="card-bg-overlay"></div>
+                        <div class="platform-logo cs2-logo"><span>LVL 17</span></div>
+                        <div class="card-avatar red-glitch-frame">
+                            <img src="images/imagesKh4ch1-avatar.png" alt="Kh4ch1" onerror="this.src='https://via.placeholder.com/100/991b1b/ffffff?text=Kh4ch1'">
+                        </div>
+                        <div class="player-info">
+                            <div class="player-name">Kh4ch1</div>
+                            <div class="player-badge-title gold-text">DMC5 StylishRank SS</div>
+                            <div class="player-status highlight-status">У мережі</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+        </main>
+
+        <!-- 3. Google Карта -->
+        <section class="map-section">
+            <div class="map-container">
+                <div class="map-header">
+                    <span class="map-badge">ГОЛОВНИЙ ОФІС</span>
+                    <h2>ШТАБ-КВАРТИРА <span class="highlight">FACEIT HQ</span></h2>
+                </div>
+
+                <div class="map-card-wrapper">
+                    <div class="map-display-embed">
+                        <iframe 
+                            class="google-map-iframe"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.98773981882!2d-0.1287621!3d51.4950798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d120ddae79%3A0xa36defae45e45b81!2sFACEIT!5e0!3m2!1suk!2s!4f13.1"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div class="map-location-info">
+                            <div class="location-details">
+                                <span class="location-city">Лондон, Велика Британія</span>
+                                <span class="location-address">24 Millbank, London SW1P 4PN</span>
+                            </div>
+                            <a href="https://maps.google.com/?cid=11776332132419656577" target="_blank" rel="noopener noreferrer" class="btn-play map-btn">
+                                <span class="btn-icon">📍</span> ВІДКРИТИ В GOOGLE MAPS
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Карта сайту -->
+        <section class="sitemap-section">
+            <div class="sitemap-container">
+                <div class="sitemap-col logo-col">
+                    <div class="sitemap-logo">FACE<span>I</span>T</div>
+                    <p class="sitemap-desc">Платформа №1 для змагального кіберспорту та розвитку гравців.</p>
+                </div>
+
+                <div class="sitemap-col">
+                    <div class="sitemap-title">Навігація</div>
+                    <ul>
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="tournaments.html">Турніри</a></li>
+                        <li><a href="download.html">Завантажити клієнт</a></li>
+                        <li><a href="#">Лідерборди</a></li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-col">
+                    <div class="sitemap-title">Ігри</div>
+                    <ul>
+                        <li><a href="#">Counter-Strike 2</a></li>
+                        <li><a href="#">Dota 2</a></li>
+                        <li><a href="#">Valorant</a></li>
+                        <li><a href="#">League of Legends</a></li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-col">
+                    <div class="sitemap-title">Підтримка</div>
+                    <ul>
+                        <li><a href="#">Anti-Cheat FAQ</a></li>
+                        <li><a href="#">База знань</a></li>
+                        <li><a href="#">Правила спільноти</a></li>
+                        <li><a href="#">Служба підтримки</a></li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-col">
+                    <div class="sitemap-title">Соцмережі</div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">Discord</a>
+                        <a href="#" class="social-icon">Twitter / X</a>
+                        <a href="#" class="social-icon">Twitch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Підніжжя -->
+        <footer>
+            <p>&copy; 2026 FACEIT Style Platform. Усі права захищено.</p>
+        </footer>
+
+    </div>
+
+    <!-- МОДАЛЬНЕ ВІКНО ВВЕДЕННЯ РЕАЛЬНОГО STEAM ID64 -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeLoginModal()">&times;</button>
+            
+            <div class="modal-header-logo">
+                <span class="modal-faceit">FACE<span>I</span>T</span>
+                <span class="modal-divider">+</span>
+                <span class="modal-steam">STEAM ID64</span>
+            </div>
+
+            <h2>ПРИВ'ЯЗКА ВАШОГО АКАУНТУ</h2>
+            <p class="modal-subtitle">Введіть ваш 17-значний <strong>SteamID64</strong> (або скористайтесь підказкою):</p>
+
+            <div class="steam-input-group">
+                <input type="text" id="steam-input" placeholder="76561198801838183" class="steam-input-field">
+                <button class="btn-play steam-submit-btn" onclick="linkRealSteamID()">ПРИВ'ЯЗАТИ АКАУНТ</button>
+            </div>
+
+            <div class="steam-quick-presets">
+                <span>Швидкий тест реальних акаунтів:</span>
+                <div class="preset-buttons">
+                    <button onclick="setPresetID('76561198801838183', 'Kh4ch1', 'images/imagesKh4ch1-avatar.png')">Kh4ch1 (Ваш акаунт)</button>
+                    <button onclick="setPresetID('76561198034202275', 's1mple', 'https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg')">s1mple</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНЕ ВІКНО МІНІ-ПРОФІЛЮ CS2 -->
+    <div class="modal-overlay" id="profile-modal">
+        <div class="modal-window profile-modal-window">
+            <button class="modal-close" onclick="closeProfileModal()">&times;</button>
+            
+            <div class="profile-header-banner">
+                <div class="profile-avatar-large">
+                    <img id="m-avatar" src="" alt="Avatar" onerror="this.src='https://via.placeholder.com/90/ff5500/ffffff?text=CS2'">
+                </div>
+                <div class="profile-name-group">
+                    <h2 id="m-name">Player <span class="profile-flag">🇺🇦</span></h2>
+                    <span class="profile-title-badge gold-text" id="m-title">FACEIT VERIFIED PLAYER</span>
+                </div>
+            </div>
+
+            <div class="profile-stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">FACEIT LEVEL</span>
+                    <span class="stat-value highlight-lvl" id="m-lvl">10</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">ELO RATING</span>
+                    <span class="stat-value" id="m-elo">2,450</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">WIN RATE</span>
+                    <span class="stat-value green-text" id="m-winrate">61%</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">K/D RATIO</span>
+                    <span class="stat-value" id="m-kd">1.34</span>
+                </div>
+            </div>
+
+            <div class="profile-cs2-details">
+                <div class="detail-row">
+                    <span>Steam ID64:</span>
+                    <strong class="mono-text" id="m-steamid">76561198000000000</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Статус профілю:</span>
+                    <strong class="green-text">✔ Успішно прив'язано</strong>
+                </div>
+            </div>
+
+            <button class="btn-login profile-close-btn" onclick="closeProfileModal()">ЗАКРИТИ МІНІ-ПРОФІЛЬ</button>
+        </div>
+    </div>
+
+    <!-- ОНОВЛЕНИЙ СКРИПТ ПРИВ'ЯЗКИ STEAM ID64 -->
+    <script>
+        function openLoginModal() { document.getElementById('login-modal').classList.add('active'); }
+        function closeLoginModal() { document.getElementById('login-modal').classList.remove('active'); }
+        function openProfileModal() { document.getElementById('profile-modal').classList.add('active'); }
+        function closeProfileModal() { document.getElementById('profile-modal').classList.remove('active'); }
+
+        function handleHeroPlayClick() {
+            if (localStorage.getItem('isLinked') === 'true') {
+                openProfileModal();
+            } else {
+                openLoginModal();
+            }
+        }
+
+        function setPresetID(id, name, avatar) {
+            document.getElementById('steam-input').value = id;
+            linkRealSteamID(name, avatar);
+        }
+
+        function linkRealSteamID(customName = null, customAvatar = null) {
+            const inputVal = document.getElementById('steam-input').value.trim();
+            const steamId = inputVal.replace(/\D/g, '') || '76561198801838183';
+
+            let playerName = customName || `SteamUser_${steamId.slice(-4)}`;
+            let playerAvatar = customAvatar || `https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg`;
+
+            // Спеціальна підв'язка для вашого акаунту Kh4ch1
+            if (steamId.includes('801838183') || playerName === 'Kh4ch1') {
+                playerName = 'Kh4ch1';
+                playerAvatar = 'images/imagesKh4ch1-avatar.png';
+            }
+
+            const profileData = {
+                id: steamId,
+                name: playerName,
+                avatar: playerAvatar,
+                lvl: 17,
+                elo: 2845,
+                winrate: '64%',
+                kd: 1.42
+            };
+
+            localStorage.setItem('userProfile', JSON.stringify(profileData));
+            localStorage.setItem('isLinked', 'true');
+
+            closeLoginModal();
+            applyProfileData();
+            openProfileModal();
+        }
+
+        function applyProfileData() {
+            if (localStorage.getItem('isLinked') === 'true') {
+                const data = JSON.parse(localStorage.getItem('userProfile'));
+                
+                // 1. Оновлюємо кнопку у шапці сайту
+                const container = document.getElementById('auth-buttons-container');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="user-logged-profile" onclick="openProfileModal()" style="cursor:pointer;" title="Відкрити мій профіль">
+                            <img src="${data.avatar}" alt="${data.name}" class="user-header-avatar" onerror="this.src='https://via.placeholder.com/35/991b1b/ffffff?text=K'">
+                            <div class="user-header-info">
+                                <span class="user-header-name">${data.name}</span>
+                                <span class="user-header-lvl">LVL ${data.lvl} (ПРОФІЛЬ)</span>
+                            </div>
+                            <button class="btn-logout" onclick="event.stopPropagation(); unlinkUser();" title="Відв'язати">&times;</button>
+                        </div>
+                    `;
+                }
+
+                // 2. Оновлюємо картку Kh4ch1
+                document.querySelectorAll('.player-card').forEach(card => card.classList.remove('active-card'));
+                const kh4ch1Card = document.querySelector('.card-kh4ch1');
+                if (kh4ch1Card) {
+                    kh4ch1Card.classList.add('active-card');
+                    const statusElem = kh4ch1Card.querySelector('.player-status');
+                    if (statusElem) statusElem.innerHTML = 'У мережі (ПРИВЯЗАНО)';
+                }
+
+                // 3. Заповнюємо дані міні-профілю
+                document.getElementById('m-name').innerHTML = `${data.name} <span class="profile-flag">🇺🇦</span>`;
+                document.getElementById('m-avatar').src = data.avatar;
+                document.getElementById('m-lvl').innerText = data.lvl;
+                document.getElementById('m-elo').innerText = data.elo;
+                document.getElementById('m-winrate').innerText = data.winrate;
+                document.getElementById('m-kd').innerText = data.kd;
+                document.getElementById('m-steamid').innerText = data.id;
+            }
+        }
+
+        function unlinkUser() {
+            localStorage.removeItem('isLinked');
+            localStorage.removeItem('userProfile');
+            location.reload();
+        }
+
+        window.addEventListener('DOMContentLoaded', applyProfileData);
+    </script>
+
+</body>
+</html>

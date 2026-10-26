@@ -1,0 +1,1299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #0b0c10;
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(255, 85, 0, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 70%, rgba(138, 43, 226, 0.08) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* --- ШАПКА --- */
+header {
+    background-color: #14171d;
+    border-bottom: 2px solid #ff5500;
+    padding: 15px 5%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    flex: 1;
+    align-items: flex-start;
+}
+
+.logo-main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 6px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.logo-main .accent { color: #ff5500; }
+
+.logo-sub {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo-sub .orange-text { color: #ff5500; }
+.logo-sub .white-text { color: #ffffff; }
+
+.strikethrough {
+    text-decoration: line-through;
+    text-decoration-color: #ff0000;
+    text-decoration-thickness: 2px;
+}
+
+.handwritten {
+    font-family: 'Permanent Marker', cursive;
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-top: -2px;
+}
+
+nav ul.menu-center {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 35px;
+    justify-content: center;
+}
+
+nav ul.menu-center li a {
+    text-decoration: none;
+    color: #b0b0b0;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+}
+
+nav ul.menu-center li a:hover,
+nav ul.menu-center li a.active {
+    color: #ffffff;
+    border-bottom: 2px solid #ff5500;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 10px 22px;
+    border-radius: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.btn-login:hover {
+    border-color: #ff5500;
+    color: #ff5500;
+}
+
+.btn-play {
+    background-color: #ff5500;
+    color: #ffffff;
+    padding: 11px 26px;
+    border-radius: 3px;
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-play:hover {
+    background-color: #e04b00;
+    transform: translateY(-1px);
+}
+
+/* Стан авторизованого користувача в шапці */
+.user-logged-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 85, 0, 0.1);
+    border: 1px solid #ff5500;
+    padding: 6px 14px;
+    border-radius: 6px;
+}
+
+.user-header-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid #ff5500;
+    object-fit: cover;
+}
+
+.user-header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-header-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.user-header-lvl {
+    font-size: 10px;
+    color: #ff5500;
+    font-weight: 800;
+}
+
+.btn-logout {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+.btn-logout:hover {
+    color: #ef4444;
+}
+
+/* --- HERO SECTION --- */
+.hero-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 5%;
+}
+
+.hero-section {
+    width: 100%;
+    max-width: 1800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 650px;
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+}
+
+.hero-title .highlight { color: #ff5500; }
+
+.hero-description {
+    color: #a0a0a0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 36px;
+    font-size: 16px;
+}
+
+.online-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: #888;
+}
+
+.online-status .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #00ff66;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff66;
+}
+
+.online-status .online-count {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* --- КАРТОЧКИ ИГРОКОВ --- */
+.players-cards {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.player-card {
+    width: 240px;
+    height: 360px;
+    border-radius: 12px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-banner-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.2) 0%, rgba(10, 10, 15, 0.92) 75%);
+    z-index: 1;
+}
+
+.player-card > *:not(.card-banner-bg):not(.card-bg-overlay):not(.lightning-effect) {
+    position: relative;
+    z-index: 2;
+}
+
+.player-card:hover, .player-card.active-card {
+    transform: translateY(-8px);
+    border-color: #ff5500;
+    box-shadow: 0 15px 35px rgba(255, 85, 0, 0.3);
+}
+
+.card-gtnerv { border-color: #2a2d34; }
+.card-gtnerv .card-banner-bg { background: radial-gradient(circle at 50% 20%, #2c2d35 0%, #0d0e12 100%); }
+
+.card-pr3tty {
+    border-color: #8a2be2;
+    height: 390px;
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.35);
+}
+.card-pr3tty .card-banner-bg { background: radial-gradient(circle at 50% 0%, #3b0764 0%, #0f172a 100%); }
+
+.card-pr3tty .lightning-effect {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: 
+        radial-gradient(ellipse at 50% 20%, rgba(0, 240, 255, 0.25), transparent 60%),
+        repeating-linear-gradient(45deg, rgba(138, 43, 226, 0.05) 0px, rgba(138, 43, 226, 0.05) 2px, transparent 2px, transparent 8px);
+    pointer-events: none;
+}
+
+.card-pr3tty .neon-frame {
+    border-color: #00f0ff !important;
+    box-shadow: 0 0 15px #00f0ff, inset 0 0 8px #00f0ff;
+}
+
+.card-kh4ch1 { border-color: #ef4444; }
+.card-kh4ch1 .card-banner-bg {
+    background: 
+        linear-gradient(180deg, rgba(180, 83, 9, 0.25) 0%, #030712 100%),
+        repeating-linear-gradient(0deg, rgba(234, 179, 8, 0.05) 0px, rgba(234, 179, 8, 0.05) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(90deg, rgba(234, 179, 8, 0.05) 0px, rgba(234, 179, 8, 0.05) 1px, transparent 1px, transparent 20px);
+}
+
+.card-kh4ch1 .red-glitch-frame {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+}
+
+.platform-logo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 11px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #555;
+    margin-bottom: 18px;
+}
+
+.card-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.player-badge-title {
+    font-size: 12px;
+    color: #c084fc;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.player-badge-title.mono-text { color: #8a8a9e; font-family: monospace; font-size: 10px; }
+.player-badge-title.gold-text { color: #eab308; }
+
+.player-status { font-size: 11px; color: #888; }
+.player-status.highlight-status { color: #00ff66; font-weight: 800; }
+
+/* --- СЕКЦІЯ РЕАЛЬНОЇ ГЕОПОЗИЦІЇ FACEIT --- */
+.map-section {
+    width: 100%;
+    padding: 40px 5%;
+    background: linear-gradient(180deg, transparent 0%, #0d0e12 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.map-container { width: 100%; max-width: 1200px; }
+.map-header { text-align: center; margin-bottom: 25px; }
+
+.map-badge {
+    color: #ff5500;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: rgba(255, 85, 0, 0.1);
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 85, 0, 0.3);
+}
+
+.map-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.map-card-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 85, 0, 0.4);
+    box-shadow: 0 0 30px rgba(255, 85, 0, 0.15);
+    background: #14171d;
+}
+
+.map-display-embed {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.google-map-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: invert(90%) hue-rotate(180deg) contrast(1.2);
+    pointer-events: auto;
+}
+
+.map-location-info {
+    position: relative;
+    z-index: 2;
+    margin: 20px;
+    padding: 15px 25px;
+    background: rgba(20, 23, 29, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location-details { display: flex; flex-direction: column; gap: 4px; }
+.location-city { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; color: #ff5500; }
+.location-address { font-size: 13px; color: #b0b0b0; }
+.map-btn { font-size: 13px; padding: 12px 22px; }
+
+/* --- МОДАЛЬНЕ ВІКНО STEAM АВТОРИЗАЦІЇ --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window {
+    background: #14171d;
+    border: 2px solid #ff5500;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 460px;
+    padding: 35px 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 40px rgba(255, 85, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover { color: #ffffff; }
+
+.modal-header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.modal-faceit span { color: #ff5500; }
+.modal-divider { color: #555; }
+.modal-steam { color: #66c0f4; }
+
+.modal-window h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.modal-subtitle {
+    font-size: 13px;
+    color: #9aa0a6;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.btn-steam-login {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(90deg, #171a21 0%, #2a475e 100%);
+    border: 1px solid #66c0f4;
+    color: #ffffff;
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-steam-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(102, 192, 244, 0.4);
+}
+
+.steam-security-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+}
+
+.steam-security-notice p {
+    font-size: 11px;
+    color: #6c757d;
+    line-height: 1.4;
+}
+
+/* --- STEAM QR CODE СТИЛІ --- */
+.steam-qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.qr-wrapper {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 3px solid #66c0f4;
+    box-shadow: 0 0 25px rgba(102, 192, 244, 0.4);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.qr-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.qr-laser-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ff5500;
+    box-shadow: 0 0 10px #ff5500, 0 0 20px #ff5500;
+    animation: scanAnimation 2s infinite ease-in-out;
+    z-index: 5;
+}
+
+@keyframes scanAnimation {
+    0% { top: 0%; }
+    50% { top: 95%; }
+    100% { top: 0%; }
+}
+
+.qr-overlay-status {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 23, 29, 0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #66c0f4;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+}
+
+.qr-overlay-status.active {
+    opacity: 1;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(102, 192, 244, 0.3);
+    border-top: 3px solid #66c0f4;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- СТИЛІ МІНІ-ПРОФІЛЮ CS2 --- */
+.profile-modal-window {
+    max-width: 480px;
+    border-color: #ef4444;
+    box-shadow: 0 0 40px rgba(239, 68, 68, 0.3);
+}
+
+.profile-header-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-avatar-large {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #ef4444;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+}
+
+.profile-avatar-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name-group h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.profile-title-badge {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.profile-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: #0d0e12;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 10px;
+    color: #777;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.highlight-lvl { color: #ff5500; }
+.green-text { color: #00ff66; }
+
+.profile-cs2-details {
+    background: #0d0e12;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    color: #aaa;
+}
+
+.detail-row strong {
+    color: #fff;
+}
+
+.profile-close-btn {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* --- СТИЛІ СТОРІНКИ ТУРНІРІВ --- */
+.tournaments-container {
+    flex: 1;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.tournaments-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.tournaments-header h1 .highlight { color: #ff5500; }
+.tournaments-header p { color: #9aa0a6; font-size: 16px; }
+
+.tournaments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tournament-card {
+    background: #14171d;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.tournament-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 85, 0, 0.5);
+}
+
+.tournament-card.active-t {
+    border-color: #ff5500;
+    box-shadow: 0 0 20px rgba(255, 85, 0, 0.25);
+    background: linear-gradient(180deg, #1a1e27 0%, #14171d 100%);
+}
+
+.t-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.t-badge.finished { background: rgba(100, 116, 139, 0.2); color: #cbd5e1; border: 1px solid #475569; }
+.t-badge.live { background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid #ef4444; }
+.t-badge.major { background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid #eab308; }
+.t-badge.upcoming { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
+
+.t-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.t-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.t-winner {
+    font-size: 13px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #ddd;
+}
+
+.bracket-section {
+    background: #101216;
+    border: 1px solid rgba(255, 85, 0, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.bracket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.bracket-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.status-tag {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+.status-tag.finished { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid #22c55e; }
+.status-tag.live { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid #ef4444; }
+.status-tag.upcoming { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid #64748b; }
+
+.bracket-view {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: center;
+}
+
+.bracket-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.column-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ff5500;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.match-box {
+    background: #181b22;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.match-team {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #888;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.match-team span { font-family: 'Montserrat', sans-serif; font-weight: 900; }
+
+.match-team.winner {
+    color: #ffffff;
+    background: rgba(255, 85, 0, 0.15);
+    border-left: 3px solid #ff5500;
+}
+
+.match-team.winner span { color: #ff5500; }
+
+.match-team.trophy-winner {
+    color: #eab308;
+    background: rgba(234, 179, 8, 0.15);
+    border-left: 3px solid #eab308;
+    font-weight: 900;
+}
+
+.match-team.trophy-winner span { color: #eab308; }
+.grand-final-box { border: 2px solid #eab308; box-shadow: 0 0 20px rgba(234, 179, 8, 0.2); }
+
+/* --- СТИЛІ СТОРІНКИ ЗАВАНТАЖЕННЯ --- */
+.download-page-container {
+    flex: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.download-hero-text {
+    text-align: center;
+    max-width: 800px;
+}
+
+.download-tag {
+    color: #ff5500;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: rgba(255, 85, 0, 0.1);
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 85, 0, 0.3);
+}
+
+.download-hero-text h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    margin: 15px 0;
+}
+
+.download-hero-text p {
+    color: #9aa0a6;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.download-action-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.download-main-btn {
+    font-size: 16px;
+    padding: 16px 36px;
+    box-shadow: 0 0 25px rgba(255, 85, 0, 0.35);
+}
+
+.sys-version {
+    font-size: 12px;
+    color: #666;
+}
+
+.app-mockup-wrapper {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 85, 0, 0.4);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+    background: #14171d;
+}
+
+.app-window-frame {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-top-bar {
+    background: #0d0e12;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.app-dots { display: flex; gap: 6px; }
+.app-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.app-title-bar {
+    font-size: 11px;
+    color: #777;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.app-status-badge {
+    font-size: 10px;
+    color: #00ff66;
+    font-weight: 900;
+    background: rgba(0, 255, 102, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.app-body-content {
+    display: flex;
+    height: 320px;
+}
+
+.app-sidebar {
+    width: 200px;
+    background: #0f1117;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.app-side-item {
+    font-size: 12px;
+    font-weight: 700;
+    color: #777;
+    padding: 10px 12px;
+    border-radius: 6px;
+}
+
+.app-side-item.active {
+    color: #fff;
+    background: rgba(255, 85, 0, 0.2);
+    border-left: 3px solid #ff5500;
+}
+
+.app-main-view {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1a1e27 0%, #14171d 100%);
+}
+
+.app-match-card {
+    background: #0f1117;
+    border: 1px solid rgba(255, 85, 0, 0.3);
+    border-radius: 10px;
+    padding: 25px;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+.match-badge-live {
+    font-size: 10px;
+    color: #ef4444;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.app-match-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.match-teams-preview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #181b22;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: 900;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.m-team span { color: #ff5500; margin-left: 4px; }
+.m-vs { color: #555; font-size: 11px; }
+
+.ac-protected-status {
+    font-size: 11px;
+    color: #888;
+}
+
+.shield-green { color: #00ff66; margin-right: 4px; }
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 100%;
+}
+
+.feature-card {
+    background: #14171d;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.feature-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+}
+
+/* --- КАРТА САЙТУ (SITEMAP ~5%) --- */
+.sitemap-section {
+    width: 100%;
+    background: #0d0e12;
+    border-top: 1px solid rgba(255, 85, 0, 0.2);
+    padding: 25px 5%;
+    margin-top: auto;
+}
+
+.sitemap-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    gap: 30px;
+}
+
+.sitemap-col .sitemap-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+.sitemap-col .sitemap-logo span { color: #ff5500; }
+
+.sitemap-desc {
+    font-size: 12px;
+    color: #6c757d;
+    line-height: 1.5;
+    max-width: 250px;
+}
+
+.sitemap-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #ff5500;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.sitemap-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sitemap-col ul li a {
+    text-decoration: none;
+    color: #9aa0a6;
+    font-size: 12px;
+    transition: color 0.2s ease;
+}
+
+.sitemap-col ul li a:hover { color: #ffffff; }
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.social-icon {
+    font-size: 12px;
+    color: #9aa0a6;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.social-icon:hover { color: #ff5500; }
+
+footer {
+    text-align: center;
+    padding: 12px;
+    color: #444;
+    font-size: 11px;
+    background: #08090c;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    width: 100%;
+}

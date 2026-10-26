@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACEIT - CS2 Турніри 2026</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Permanent+Marker&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- 1. Шапка сайту -->
+        <header>
+            <nav>
+                <a href="index.html" class="logo-container">
+                    <div class="logo-main">
+                        FACE<span class="accent">I</span>T
+                    </div>
+                    <div class="logo-sub">
+                        <span class="orange-text">CHALLENGE</span>
+                        <span class="white-text">YOUR</span>
+                        <span class="white-text strikethrough">GAME</span>
+                    </div>
+                    <div class="handwritten">MENTAL HEALTH</div>
+                </a>
+
+                <ul class="menu-center">
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="tournaments.html" class="active">Турніри</a></li>
+                    <li><a href="download.html">Завантажити</a></li>
+                </ul>
+
+                <div class="header-buttons" id="auth-buttons-container">
+                    <a href="index.html" class="btn-login">Увійти</a>
+                    <a href="index.html" class="btn-play">Грати зараз</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- 2. Головний контент турнірів -->
+        <main class="tournaments-container">
+            
+            <div class="tournaments-header">
+                <h1>СЕЗОН CS2 <span class="highlight">2026</span></h1>
+                <p>Обирайте турнір, щоб переглянути сітку плей-оф та поточні результати матчів.</p>
+            </div>
+
+            <!-- Список карт-турнірів -->
+            <div class="tournaments-grid">
+
+                <div class="tournament-card active-t" onclick="selectTournament('epl24')">
+                    <div class="t-badge finished">ЗАВЕРШЕНО</div>
+                    <div class="t-title">ESL Pro League Season 24</div>
+                    <div class="t-info">
+                        <span>📍 Катовіце, Польща</span>
+                        <span>🏆 Призовий: $1,000,000</span>
+                    </div>
+                    <div class="t-winner">
+                        Переможець: 🥇 <strong>Team Vitality</strong>
+                    </div>
+                </div>
+
+                <div class="tournament-card" onclick="selectTournament('bucharest')">
+                    <div class="t-badge live">НАЖИВО (LIVE)</div>
+                    <div class="t-title">PGL Masters Bucharest 2026</div>
+                    <div class="t-info">
+                        <span>📍 Бухарест, Румунія</span>
+                        <span>🏆 Призовий: $1,250,000</span>
+                    </div>
+                    <div class="t-winner">
+                        Стадія: ⚔️ <strong>Плей-оф (Quarter-Finals)</strong>
+                    </div>
+                </div>
+
+                <div class="tournament-card" onclick="selectTournament('cologne')">
+                    <div class="t-badge major">MAJOR (ЗАВЕРШЕНО)</div>
+                    <div class="t-title">IEM Cologne Major 2026</div>
+                    <div class="t-info">
+                        <span>📍 Кельн, Німеччина</span>
+                        <span>🏆 Призовий: $1,250,000</span>
+                    </div>
+                    <div class="t-winner">
+                        Переможець: 🥇 <strong>Team Falcons</strong>
+                    </div>
+                </div>
+
+                <div class="tournament-card" onclick="selectTournament('singapore')">
+                    <div class="t-badge upcoming">АНОНС</div>
+                    <div class="t-title">PGL Major Singapore 2026</div>
+                    <div class="t-info">
+                        <span>📍 Сінгапур</span>
+                        <span>🏆 Призовий: $1,250,000</span>
+                    </div>
+                    <div class="t-winner">
+                        Старт: 📅 <strong>Листопад 2026</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 3. Динамічна сітка плей-оф -->
+            <section class="bracket-section">
+                <div class="bracket-header">
+                    <h2 id="selected-t-title">СІТКА ПЛЕЙ-ОФ: ESL Pro League Season 24</h2>
+                    <div class="status-indicator" id="selected-t-status">
+                        <span class="status-tag finished">Турнір зіграно — Переможець: Team Vitality (3:0)</span>
+                    </div>
+                </div>
+
+                <div class="bracket-view" id="bracket-display">
+                    <div class="bracket-column">
+                        <div class="column-title">ЧВЕРТЬФІНАЛ</div>
+                        <div class="match-box">
+                            <div class="match-team winner">Vitality <span>2</span></div>
+                            <div class="match-team">PARIVISION <span>0</span></div>
+                        </div>
+                        <div class="match-box">
+                            <div class="match-team">1win <span>0</span></div>
+                            <div class="match-team winner">Aurora <span>2</span></div>
+                        </div>
+                        <div class="match-box">
+                            <div class="match-team">Falcons <span>0</span></div>
+                            <div class="match-team winner">Spirit <span>2</span></div>
+                        </div>
+                        <div class="match-box">
+                            <div class="match-team">FURIA <span>0</span></div>
+                            <div class="match-team winner">MOUZ <span>2</span></div>
+                        </div>
+                    </div>
+
+                    <div class="bracket-column">
+                        <div class="column-title">ПІВФІНАЛ</div>
+                        <div class="match-box">
+                            <div class="match-team winner">Vitality <span>2</span></div>
+                            <div class="match-team">Aurora <span>1</span></div>
+                        </div>
+                        <div class="match-box">
+                            <div class="match-team">Spirit <span>1</span></div>
+                            <div class="match-team winner">MOUZ <span>2</span></div>
+                        </div>
+                    </div>
+
+                    <div class="bracket-column final-column">
+                        <div class="column-title">ГРАНД ФІНАЛ</div>
+                        <div class="match-box grand-final-box">
+                            <div class="match-team trophy-winner">🏆 Vitality <span>3</span></div>
+                            <div class="match-team">MOUZ <span>0</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 4. Карта сайту -->
+        <section class="sitemap-section">
+            <div class="sitemap-container">
+                <div class="sitemap-col logo-col">
+                    <div class="sitemap-logo">FACE<span>I</span>T</div>
+                    <p class="sitemap-desc">Платформа №1 для змагального кіберспорту та розвитку гравців.</p>
+                </div>
+
+                <div class="sitemap-col">
+                    <div class="sitemap-title">Навігація</div>
+                    <ul>
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="tournaments.html">Турніри</a></li>
+                        <li><a href="download.html">Завантажити клієнт</a></li>
+                        <li><a href="#">Лідерборди</a></li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-col">
+                    <div class="sitemap-title">Ігри</div>
+                    <ul>
+                        <li><a href="#">Counter-Strike 2</a></li>
+                        <li><a href="#">Dota 2</a></li>
+                        <li><a href="#">Valorant</a></li>
+                        <li><a href="#">League of Legends</a></li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-col">
+                    <div class="sitemap-title">Підтримка</div>
+                    <ul>
+                        <li><a href="#">Anti-Cheat FAQ</a></li>
+                        <li><a href="#">База знань</a></li>
+                        <li><a href="#">Правила спільноти</a></li>
+                        <li><a href="#">Служба підтримки</a></li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-col">
+                    <div class="sitemap-title">Соцмережі</div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">Discord</a>
+                        <a href="#" class="social-icon">Twitter / X</a>
+                        <a href="#" class="social-icon">Twitch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Підніжжя -->
+        <footer>
+            <p>&copy; 2026 FACEIT Style Platform. Усі права захищено.</p>
+        </footer>
+
+    </div>
+
+    <!-- Скрипт перемикання турнірів та перевірки входу -->
+    <script>
+        const tournamentData = {
+            epl24: {
+                title: "СІТКА ПЛЕЙ-ОФ: ESL Pro League Season 24",
+                statusHtml: '<span class="status-tag finished">Турнір зіграно — Переможець: Team Vitality (3:0)</span>',
+                bracket: [
+                    {
+                        stage: "ЧВЕРТЬФІНАЛ",
+                        matches: [
+                            { t1: "Vitality", s1: "2", t2: "PARIVISION", s2: "0", w: 1 },
+                            { t1: "1win", s1: "0", t2: "Aurora", s2: "2", w: 2 },
+                            { t1: "Falcons", s1: "0", t2: "Spirit", s2: "2", w: 2 },
+                            { t1: "FURIA", s1: "0", t2: "MOUZ", s2: "2", w: 2 }
+                        ]
+                    },
+                    {
+                        stage: "ПІВФІНАЛ",
+                        matches: [
+                            { t1: "Vitality", s1: "2", t2: "Aurora", s2: "1", w: 1 },
+                            { t1: "Spirit", s1: "1", t2: "MOUZ", s2: "2", w: 2 }
+                        ]
+                    },
+                    {
+                        stage: "ГРАНД ФІНАЛ",
+                        isFinal: true,
+                        matches: [
+                            { t1: "🏆 Vitality", s1: "3", t2: "MOUZ", s2: "0", w: 1 }
+                        ]
+                    }
+                ]
+            },
+            bucharest: {
+                title: "СІТКА ПЛЕЙ-ОФ: PGL Masters Bucharest 2026",
+                statusHtml: '<span class="status-tag live">Турнір наживо — Поточна стадія плей-оф</span>',
+                bracket: [
+                    {
+                        stage: "ЧВЕРТЬФІНАЛ",
+                        matches: [
+                            { t1: "NAVI", s1: "2", t2: "G2", s2: "1", w: 1 },
+                            { t1: "FaZe", s1: "1", t2: "Vitality", s2: "2", w: 2 },
+                            { t1: "Spirit", s1: "2", t2: "Heroic", s2: "0", w: 1 },
+                            { t1: "MOUZ", s1: "TBD", t2: "Astralis", s2: "TBD", w: 0 }
+                        ]
+                    },
+                    {
+                        stage: "ПІВФІНАЛ (СЬОГОДНІ)",
+                        matches: [
+                            { t1: "NAVI", s1: "-", t2: "Vitality", s2: "-", w: 0 },
+                            { t1: "Spirit", s1: "-", t2: "ТБД (MOUZ/Astralis)", s2: "-", w: 0 }
+                        ]
+                    },
+                    {
+                        stage: "ГРАНД ФІНАЛ",
+                        isFinal: true,
+                        matches: [
+                            { t1: "Очікується", s1: "0", t2: "Очікується", s2: "0", w: 0 }
+                        ]
+                    }
+                ]
+            },
+            cologne: {
+                title: "СІТКА ПЛЕЙ-ОФ: IEM Cologne Major 2026",
+                statusHtml: '<span class="status-tag finished">Major зіграно — Переможець: Team Falcons (3:0)</span>',
+                bracket: [
+                    {
+                        stage: "ЧВЕРТЬФІНАЛ",
+                        matches: [
+                            { t1: "Falcons", s1: "2", t2: "G2", s2: "0", w: 1 },
+                            { t1: "MOUZ", s1: "2", t2: "NAVI", s2: "1", w: 1 },
+                            { t1: "FURIA", s1: "2", t2: "Astralis", s2: "1", w: 1 },
+                            { t1: "Spirit", s1: "2", t2: "Vitality", s2: "0", w: 1 }
+                        ]
+                    },
+                    {
+                        stage: "ПІВФІНАЛ",
+                        matches: [
+                            { t1: "Falcons", s1: "2", t2: "MOUZ", s2: "0", w: 1 },
+                            { t1: "FURIA", s1: "2", t2: "Spirit", s2: "1", w: 1 }
+                        ]
+                    },
+                    {
+                        stage: "ГРАНД ФІНАЛ",
+                        isFinal: true,
+                        matches: [
+                            { t1: "🏆 Falcons", s1: "3", t2: "FURIA", s2: "0", w: 1 }
+                        ]
+                    }
+                ]
+            },
+            singapore: {
+                title: "СІТКА ПЛЕЙ-ОФ: PGL Major Singapore 2026",
+                statusHtml: '<span class="status-tag upcoming">АНОНС — Сітка сформується після Swiss Stage</span>',
+                bracket: [
+                    {
+                        stage: "ЧВЕРТЬФІНАЛ",
+                        matches: [
+                            { t1: "Seed #1", s1: "-", t2: "Seed #8", s2: "-", w: 0 },
+                            { t1: "Seed #4", s1: "-", t2: "Seed #5", s2: "-", w: 0 },
+                            { t1: "Seed #3", s1: "-", t2: "Seed #6", s2: "-", w: 0 },
+                            { t1: "Seed #2", s1: "-", t2: "Seed #7", s2: "-", w: 0 }
+                        ]
+                    },
+                    {
+                        stage: "ПІВФІНАЛ",
+                        matches: [
+                            { t1: "ТБД", s1: "-", t2: "ТБД", s2: "-", w: 0 },
+                            { t1: "ТБД", s1: "-", t2: "ТБД", s2: "-", w: 0 }
+                        ]
+                    },
+                    {
+                        stage: "ГРАНД ФІНАЛ",
+                        isFinal: true,
+                        matches: [
+                            { t1: "ТБД", s1: "-", t2: "ТБД", s2: "-", w: 0 }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        function selectTournament(key) {
+            document.querySelectorAll('.tournament-card').forEach(card => card.classList.remove('active-t'));
+            event.currentTarget.classList.add('active-t');
+
+            const data = tournamentData[key];
+            document.getElementById('selected-t-title').innerText = data.title;
+            document.getElementById('selected-t-status').innerHTML = data.statusHtml;
+
+            const container = document.getElementById('bracket-display');
+            container.innerHTML = '';
+
+            data.bracket.forEach(col => {
+                const colDiv = document.createElement('div');
+                colDiv.className = 'bracket-column' + (col.isFinal ? ' final-column' : '');
+                
+                let matchesHtml = `<div class="column-title">${col.stage}</div>`;
+                col.matches.forEach(m => {
+                    const t1WinnerClass = m.w === 1 ? (col.isFinal ? 'trophy-winner' : 'winner') : '';
+                    const t2WinnerClass = m.w === 2 ? (col.isFinal ? 'trophy-winner' : 'winner') : '';
+                    
+                    matchesHtml += `
+                        <div class="match-box ${col.isFinal ? 'grand-final-box' : ''}">
+                            <div class="match-team ${t1WinnerClass}">${m.t1} <span>${m.s1}</span></div>
+                            <div class="match-team ${t2WinnerClass}">${m.t2} <span>${m.s2}</span></div>
+                        </div>
+                    `;
+                });
+                
+                colDiv.innerHTML = matchesHtml;
+                container.appendChild(colDiv);
+            });
+        }
+
+        function checkAuthState() {
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                const container = document.getElementById('auth-buttons-container');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="user-logged-profile">
+                            <img src="images/imagesKh4ch1-avatar.png" alt="Kh4ch1" class="user-header-avatar" onerror="this.src='https://via.placeholder.com/35/991b1b/ffffff?text=K'">
+                            <div class="user-header-info">
+                                <span class="user-header-name">Kh4ch1</span>
+                                <span class="user-header-lvl">LVL 17</span>
+                            </div>
+                            <button class="btn-logout" onclick="logoutUser()" title="Вийти">&times;</button>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        function logoutUser() {
+            localStorage.removeItem('isLoggedIn');
+            location.reload();
+        }
+
+        window.addEventListener('DOMContentLoaded', checkAuthState);
+    </script>
+
+</body>
+</html>
